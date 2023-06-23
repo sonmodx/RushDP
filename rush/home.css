@@ -1,0 +1,147 @@
+
+
+main {
+    /* margin-left: var(--navbar-width); */
+    text-align: center;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+header .welcome {
+    font-size: clamp(3rem, 1rem + 7vw, 15rem);
+    color: var(--primary-sea-clr);
+    font-weight: 1000;
+    font-family: 'Nanum Pen Script', cursive;
+    letter-spacing: 10px;
+}
+
+header .date {
+    font-size: clamp(2rem, 1rem + 3vw, 5rem);
+    font-weight: 200;
+}
+
+.card-wrapper {
+    margin-top: 4em;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: min(100%, 80rem);
+    gap: 1em;
+}
+
+.card { 
+    border-radius: 1em;
+    overflow: hidden;
+    box-shadow: 0px 3px 4px var(--neutral-pale-white-clr);
+    transition: 0.3s ease;
+    animation: fade 2s alternate forwards;
+    transform: translateX(100%);
+    z-index: 9;
+    background-color: var(--primary-very-black);
+}
+
+.card#first-card {
+    transform: translateX(-100%);
+}
+
+.card:hover {
+    scale: 1.05;
+    box-shadow: 0 8px 20px var(--primary-sea-clr);
+}
+
+.title-card {
+    text-align: center;
+}
+
+.card .profile-img > img{
+    padding: 1em;
+    border-radius: 50%;
+    max-height: 300px;
+}
+
+.card .profile-detail {
+    text-align: center;
+    padding: 1.6em 0;
+    background-color: var(--neutral-black);
+}
+
+.card .profile-detail > *:not(:first-child) {
+    margin-top: 1em;
+}
+
+.card .profile-detail .description {
+    color: gray;
+}
+
+.card .profile-detail .links > *{
+    text-decoration: none;
+    color: black;
+    transition: 0.3s ease;
+}
+
+.card .profile-detail .links > *:is(:focus-visible, :hover) {
+    color: var(--primary-sea-clr);
+}
+
+.card .profile-detail .links > *:not(:first-child) {
+    margin-left: 1em;
+    font-size: 1.2em;
+    
+}
+
+.card .contact-btn {
+    font-size: 1rem;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    color: whitesmoke;
+    background-color: var(--primary-sea-clr);
+    border: 0;
+    width: 100%;
+    outline: transparent;
+}
+
+.card .contact-btn .link {
+    padding: .5em 0;
+    color: var(--neutral-black);
+    font-weight: 700;
+    width: 100%;
+    transition: 0.3s ease;
+}
+
+.card .contact-btn .link:is(:focus-visible, :hover) {
+    color: var(--primary-sea-clr);
+    background-color: var(--neutral-black);
+}
+
+.snowball {
+    position: absolute;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background-color: var(--neutral-pale-white-clr);
+    z-index: -1;
+}
+
+@keyframes fade {
+    from {
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@media (max-width: 600px) {
+    .card-wrapper {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 4em;
+        
+    }
+}
+

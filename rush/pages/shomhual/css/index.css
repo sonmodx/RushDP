@@ -1,0 +1,233 @@
+.title {
+    font-size: clamp(1.2rem, 1.2rem + 3vw, 3rem);
+    text-shadow: 0px 3px 10px var(--primary-sea-clr);
+    letter-spacing: 3px;
+}
+
+.fade-in {
+    transition: 1.2s ease;
+    opacity: 0;
+}
+
+.fade-in.active {
+    opacity: 1;
+}
+
+header {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+}
+
+header > * {
+    grid-area: 1/-1;
+}
+
+header > .parallax {
+    background-image: url('https://wallpaperaccess.com/full/1093978.jpg');
+    min-height: 100vh; 
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+header .two-sides {
+    width: 100vw;
+    padding-left: var(--space-navbar);
+    display: flex;
+    justify-content: center;
+    gap: 5em;
+    align-items: center;
+}
+
+header .two-sides > * {
+    flex-basis: 100%;
+}
+
+header .two-sides .content .greet {
+    font-size: 2rem;
+    letter-spacing: .2em;
+}
+
+header .two-sides .content .full-name {
+    font-size: clamp(1.5rem ,1.5rem + 3vw, 4rem);
+    color: var(--primary-sea-clr);
+}
+
+header .profile {
+    margin-right: 1em;
+    width: 100%;
+}
+
+header .profile > img {
+    width: 30rem;
+    border-radius: 50%;
+}
+
+header .content {
+    padding: 5em;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+header .content > *:not(:first-child) {
+    margin-top: 1em;
+}
+
+section.skills {
+    padding: 8em 2em;
+    padding-left: var(--space-navbar);
+}
+
+
+
+section.skills .grid {
+    margin-top: 1.5em;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2em;
+}
+
+section.skills .grid .span-two {
+    grid-column: span 2;
+}
+
+section.skills .grid .my-skill:last-child {
+    grid-column: 1/-1;
+}
+
+section.skills .grid .my-skill {
+    padding: 1.2em;
+    background-color: var(--neutral-pale-white-clr);
+    color: var(--primary-very-black);
+    border-radius: 10px;
+}
+
+section.skills .grid .my-skill .logo-skill {
+    color: var(--primary-sea-clr);
+    font-size: 3em;
+}
+
+section.skills .grid .my-skill .content-skill {
+    margin-top: 1em;
+}
+
+section.skills .grid .my-skill .content-skill .description {
+    margin-top: .5em;
+    line-height: 1.4rem;
+}
+
+section.contact {
+    padding: 8em 2em;
+    padding-left: var(--space-navbar);
+    
+}
+
+section.contact :is(.contact-table, tr, .contact-data) {
+    border: 1em solid var(--primary-very-black);
+    border-collapse: collapse;
+    
+}
+
+section.contact .contact-table {
+    width: 100%;
+    margin-top: 2em;
+}
+
+section.contact .contact-data {
+    background-color: var(--neutral-black);
+    padding: 1em;
+    vertical-align: top;
+
+}
+
+section.contact .icon {
+    font-size: 1.2rem;
+    background-color: var(--primary-very-black);
+    width: 50px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+}
+
+section.contact .contact-data .head {
+    margin-top: .6em;
+    font-size: 1.5rem;
+    color: var(--primary-sea-clr);
+}
+
+section.contact .contact-data .text > * + * {
+    margin-top: .5em;
+}
+
+section.contact .contact-data .lists {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+}
+
+section.contact .contact-data .lists > li > a {
+    color: var(--neutral-pale-white-clr);
+    font-size: 1.5rem;
+    transition: 0.3s ease;
+}
+
+section.contact .contact-data .lists > li > a:is(:hover, :focus-visible) {
+    color: var(--primary-sea-clr);
+}
+
+@media (max-width: 1200px) {
+    header .two-sides {
+        flex-direction: column-reverse;
+        align-items: center;
+        justify-content: center;
+        gap: 0;
+    }
+
+    header .profile > img {
+        width: 20rem;
+        border-radius: 50%;
+    }
+
+    header .profile {
+        margin-top: 10rem;
+        width: unset;
+    }
+
+    header .content {
+        padding: 1em;
+    }
+
+    section.skills .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    * {
+        --space-navbar: 0;
+    }
+
+    header .profile {
+        margin-inline: 1em;
+        width: 100%;
+    }
+
+    section.skills .grid {
+        grid-template-columns: 1fr;
+    }
+
+    section.skills .grid .span-two {
+        grid-column: 1;
+    }
+
+    section.contact .contact-table td {
+        display: block;
+    }
+
+    section.contact :is(tr, .contact-data) {
+        border: 5px solid var(--primary-very-black);
+    }
+}
